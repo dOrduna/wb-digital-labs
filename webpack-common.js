@@ -1,10 +1,16 @@
+const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    main: "./src/main.js",
-    external: "./src/external/external.js"
+    main: "./src/main.js"
   },
-  mode: 'development',
+  mode: "development",
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
   module: {
     rules: [
       {

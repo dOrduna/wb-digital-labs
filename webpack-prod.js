@@ -1,18 +1,18 @@
 const path = require("path");
 const common = require("./webpack-common.js");
 const merge = require("webpack-merge");
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = merge(common, {
   output: {
     filename: "[name]-[contentHash].js",
     path: path.resolve(__dirname, "dist")
   },
-  mode: 'production',
+  mode: "production",
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCSSExtractPlugin({

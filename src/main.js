@@ -1,4 +1,5 @@
-import { run } from "./app";
+import { App } from "./app";
 import "./styles.less";
+import './test-data/photos.json';
 
-run();
+new App();

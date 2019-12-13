@@ -2,10 +2,17 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>ウェブパック</title>
+    <title>V-Dom vs Dom</title>
   </head>
   <body>
-    <img class="logo" src="./img/dc-logo.svg"/>
-    <h2>ようこそ！</h2>
+      <header>
+        <img class="logo" src="./img/dc-logo.svg"/>
+        <ul data-role="button-bar">
+          <li><button data-action="render">Render 5000 photos</button></li>
+          <li><button data-action="vdom-render">Render 5000 photos w/vdom</button></li>
+          <li><button data-action="clear">Clear photos</button></li>
+        </ul>
+      </header>
+      <div id="app"></div>
   </body>
 </html>
