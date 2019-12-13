@@ -1,4 +1,11 @@
+import { JsonPlaceholderService } from "./api/json-placeholder-service";
+const jsonPlaceholderService = new JsonPlaceholderService();
 
-export const run = () => {    
-    alert('世界って怖いなぁ');
+export const run = () => {
+ jsonPlaceholderService.fetchAlbums(renderAlbums);
+};
+
+
+const renderAlbums = (albums) => {
+    alert(albums.length);
 };
