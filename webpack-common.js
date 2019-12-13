@@ -1,7 +1,8 @@
 
 module.exports = {
   entry: {
-    main: "./src/main.js"
+    main: "./src/main.js",
+    external: "./src/external/external.js"
   },
   mode: 'development',
   module: {
