@@ -13,5 +13,17 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: "./src/main-template.html"
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "less-loader"
+        ]
+      }
+    ]
+  },
 });

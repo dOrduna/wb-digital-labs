@@ -4,6 +4,8 @@ const merge = require("webpack-merge");
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(common, {
   output: {
@@ -13,6 +15,9 @@ module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin(),
+    new MiniCSSExtractPlugin({
+      filename: "[name]-[contentHash].css"
+    })
   ],
   optimization: {
     minimizer: [
@@ -24,7 +29,20 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true
         }
-      })
+      }),
+      new OptimizeCSSAssetsPlugin(),
     ]
-  }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          MiniCSSExtractPlugin.loader,
+          "css-loader",
+          "less-loader"
+        ]
+      }
+    ]
+  },
 });
